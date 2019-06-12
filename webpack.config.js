@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'production',
   
-  entry: './src/app.js',
+  entry: './src/app.ts',
   
   output: {
     filename: 'bundle.js',
@@ -12,14 +12,25 @@ module.exports = {
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
         test: /\.scss$/,
         use: [
             "style-loader",
             "css-loader",
             "sass-loader"
         ]
-    }]
+      }
+    ]
+  },
+
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ]
   },
 
   plugins: [

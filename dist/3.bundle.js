@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{7:function(e,n,t){"use strict";t.r(n);var s=["black","white"],i=function(){return function(e){if(this.element=document.createElement("div"),-1===s.indexOf(e))throw new Error("No such color as"+e);this.element.classList.add("chess-field","chess-field"+e)}}();n.default=i}}]);

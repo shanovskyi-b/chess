@@ -3,11 +3,13 @@
 const fieldColours = ['black', 'white'];
 
 class ChessFiled {
-  constructor(color) {
+  element: any;
+
+  constructor(color: any) {
     this.element = document.createElement('div');
 
     if (fieldColours.indexOf(color) === -1) {
-      throw new Error('No such color as', color);
+      throw new Error('No such color as' + color);
     }
     
     this.element.classList.add('chess-field', 'chess-field'+color);

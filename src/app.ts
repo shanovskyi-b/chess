@@ -1,6 +1,7 @@
 'use strict';
-import('./css/index.scss')
-const ChessBoard = import('./js/chess-board.js');
+
+import('./css/index.scss');
+const ChessBoard = import('./js/chess-board');
 
 function init() {
   
