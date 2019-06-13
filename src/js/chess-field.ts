@@ -1,19 +1,15 @@
 'use strict';
 
-const fieldColours = ['black', 'white'];
+const ChessPiece = import('./chess-piece');
 
-class ChessFiled {
-  element: any;
+export type FieldColor = 'black' | 'white';
 
-  constructor(color: any) {
-    this.element = document.createElement('div');
+export class ChessField {
+  readonly element: HTMLElement = document.createElement('div');
 
-    if (fieldColours.indexOf(color) === -1) {
-      throw new Error('No such color as' + color);
-    }
-    
-    this.element.classList.add('chess-field', 'chess-field'+color);
+  constructor ({ color } : { color: FieldColor }) {
+    this.element.classList.add('chess-field', 'chess-field--' + color);
   }
-}
 
-export default ChessFiled;
+
+}
