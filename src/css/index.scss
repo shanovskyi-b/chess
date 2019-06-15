@@ -14,7 +14,7 @@ body {
   background-color: #ccc;
 }
 
-$cellSize: 40px;
+$cellSize: 50px;
 
 .chess-board {
   width: calc($cellSize * 8);
@@ -27,12 +27,62 @@ $cellSize: 40px;
 .chess-field {
   width: $cellSize;
   height: $cellSize;
+  padding: 2px;
 
   &.chess-field--white {
-    background-color: #fff;
+    background-color: #fff2c4;
   }
 
   &.chess-field--black {
-    background-color: #000;
+    background-color: #5a4725;
+  }
+}
+
+.chess-piece {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &.chess-piece--Pawn {
+    background-image: url('../assets/images/Pawn_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/Pawn_black.svg');
+    }
+  }
+
+  &.chess-piece--Rook {
+    background-image: url('../assets/images/Rook_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/Rook_black.svg');
+    }
+  }
+
+  &.chess-piece--Knight {
+    background-image: url('../assets/images/Knight_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/Knight_black.svg');
+    }
+  }
+
+  &.chess-piece--Bishop {
+    background-image: url('../assets/images/Bishop_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/Bishop_black.svg');
+    }
+  }
+
+  &.chess-piece--Queen {
+    background-image: url('../assets/images/Queen_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/Queen_black.svg');
+    }
+  }
+  
+  &.chess-piece--King {
+    background-image: url('../assets/images/King_white.svg');
+    &.chess-piece--black {
+      background-image: url('../assets/images/King_black.svg');
+    }
   }
 }

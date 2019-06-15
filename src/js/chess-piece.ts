@@ -1,19 +1,19 @@
 'use strict';
 
-type piecesColor = 'black' | 'white';
-type pieceType = 'Pawn' | 'Rook' | 'Knight' | 'Bishop' | 'Queen' | 'King';
+import { Player } from './utils';
 
-class ChessPiece {
+export type PieceType = 'Pawn' | 'Rook' | 'Knight' | 'Bishop' | 'Queen' | 'King';
+
+export class ChessPiece {
   readonly element: HTMLElement = document.createElement('div');
-  type: pieceType;
+  owner: Player;
+  type: PieceType;
 
-  constructor ({ color, type } : { color: piecesColor, type: pieceType }) {
+  constructor ({ owner, type } : { owner: Player, type: PieceType }) {
     this.type = type;
 
-    this.element.classList.add('chess-piece', 'chess-piece--' + color);
+    this.element.classList.add('chess-piece', 'chess-piece--' + type, 'chess-piece--' + owner.color);
   }
 
 
 }
-
-export default ChessPiece;

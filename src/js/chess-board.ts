@@ -2,12 +2,14 @@
 
 // const { ChessField } = import('./chess-field');
 import { ChessField, FieldColor } from './chess-field';
+import { PieceType, ChessPiece } from './chess-piece';
+import { Point } from './utils';
 
 const boardSize = 8;
 
 export default class ChessBoard {
   private parentElement: HTMLElement;
-  element: HTMLElement;
+  readonly element: HTMLElement = document.createElement('div');
   fields: ChessField[][] = [];
 
   constructor(container: HTMLElement) {
@@ -20,7 +22,6 @@ export default class ChessBoard {
   }
 
   private initElement () {
-    this.element = document.createElement('div');
     this.element.classList.add('chess-board');
   }
 
@@ -47,5 +48,17 @@ export default class ChessBoard {
       
       this.element.appendChild(lineElement);
     });
+  }
+
+  private initPieces () {
+
+  }
+
+  placePiece (piece :ChessPiece, position: Point) {
+    this.fields[position.y][position.x].piece = piece;
+  }
+
+  removePiece () {
+    
   }
 }

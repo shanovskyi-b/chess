@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{2:function(e,n,t){"use strict";t.r(n);t.e(3).then(t.bind(null,7));var s=function(){return function(e){this.parentElement=e,this.element=document.createElement("div"),this.element.classList.add("chess-board"),this.fields=[]}}();n.default=s}}]);
