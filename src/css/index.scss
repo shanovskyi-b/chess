@@ -1,4 +1,38 @@
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .wrapper {
-  padding: 40px;
-  background-color: #00c;
+  max-width: 900px;
+  height: 100vh;
+  margin: auto;
+  padding: 60px;
+  background-color: #ccc;
+}
+
+$cellSize: 40px;
+
+.chess-board {
+  width: calc($cellSize * 8);
+  height: calc($cellSize * 8);
+  .chess-board__line {
+    display: flex;
+  }
+}
+
+.chess-field {
+  width: $cellSize;
+  height: $cellSize;
+
+  &.chess-field--white {
+    background-color: #fff;
+  }
+
+  &.chess-field--black {
+    background-color: #000;
+  }
 }
