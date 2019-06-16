@@ -1,6 +1,7 @@
 import ChessBoard from './chess-board';
 import { ChessPiece, PieceType } from './chess-piece';
 import { Player, Point } from './utils';
+import { ChessField } from './chess-field';
 
 const startPiecesPosition = {
   'white': [
@@ -19,7 +20,7 @@ const startPiecesPosition = {
     { type: 'Queen', positions: [ { x: 3, y: 0 } ] },
     { type: 'King', positions: [ { x: 4, y: 0 } ] },
   ],
-}
+};
 
 export default class ChessGame {
   private element: HTMLElement = document.createElement('div');
@@ -28,6 +29,8 @@ export default class ChessGame {
     { name: 'player1', color: 'white' }, 
     { name: 'Player2', color: 'black' } 
   ];
+  private selectedPiece: {piece: ChessPiece, position: Point};
+  private highlightedFields: [];
   
   constructor (container: HTMLElement) {
     this.initBoard(container);
@@ -36,6 +39,9 @@ export default class ChessGame {
 
   private initBoard (container: HTMLElement) {
     this.board = new ChessBoard(container);
+    this.board.onFieldClick( (field: ChessField, position: Point) => {
+      this.handleFieldClick(field, position);
+    });
   }
 
   private initPieces () {
@@ -49,6 +55,18 @@ export default class ChessGame {
         });
       });
     });
+  }
+
+  private handleFieldClick (field: ChessField, position: Point) {
+    if (!this.selectedPiece) {
+      if (field.piece) {
+        // to-do check for piece owner
+        this.selectedPiece = { piece: field.piece, position };
+        this.board.selectPiece(position);
+      }
+    } else {
+
+    }
   }
 
   selectPiece () {

@@ -28,4 +28,18 @@ export class ChessField {
     this._piece = piece;
   }
 
+  onClick (f: Function) {
+    this.element.addEventListener('click', () => {
+      f(this);
+    });
+  }
+
+  setActiviy (active: boolean) {
+    if (active) {
+      this.element.classList.add('chess-field--active');
+    } else {
+      this.element.classList.remove('chess-field--active');
+    }
+  }
+
 }

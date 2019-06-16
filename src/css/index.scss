@@ -36,6 +36,10 @@ $cellSize: 50px;
   &.chess-field--black {
     background-color: #5a4725;
   }
+
+  &.chess-field--active {
+    background-color: #0f0;
+  }
 }
 
 .chess-piece {

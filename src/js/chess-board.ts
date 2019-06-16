@@ -7,8 +7,20 @@ import { Point } from './utils';
 
 const boardSize = 8;
 
+function movesForPiece (type: PieceType, position: Point) {
+  const from = position;
+  const moves = {
+    'Pawn': function (position: Point) {
+      //
+    }
+  };
+
+  // return moves[type];
+}
+
 export default class ChessBoard {
   private parentElement: HTMLElement;
+  private availableMoves: Point[] = [];
   readonly element: HTMLElement = document.createElement('div');
   fields: ChessField[][] = [];
 
@@ -50,15 +62,48 @@ export default class ChessBoard {
     });
   }
 
-  private initPieces () {
-
+  onFieldClick (handler: Function) {
+    this.forEachField( (field: ChessField, position: Point) => {
+      field.onClick( () => {
+        handler(field, position);
+      });
+    });
   }
 
   placePiece (piece :ChessPiece, position: Point) {
     this.fields[position.y][position.x].piece = piece;
   }
 
+  selectPiece (position: Point) {
+    const selectedField = this.fields[position.y][position.x];
+    selectedField.setActiviy(true);
+    this.setAvailableMoves(position);
+  }
+
+  unselectPiece (position: Point) {
+    this.fields[position.y][position.x].setActiviy(false);
+    // this.setAvailableMoves()
+  }
+
+  setAvailableMoves (currentPosition: Point) {
+    const currentField = this.fields[currentPosition.y][currentPosition.x];
+
+    // const isMoveAvailable = movesForPiece()
+    
+    // this.forEachField( (field: ChessField, position: Point) => {
+    //   if (isMoveAvailable())
+    // });
+  }
+
   removePiece () {
     
+  }
+
+  private forEachField (cb: Function) {
+    this.fields.forEach( (fieldsLine, y) => {
+      fieldsLine.forEach( (field, x) => {
+        cb(field, { x, y })
+      });
+    });
   }
 }

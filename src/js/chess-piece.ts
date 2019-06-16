@@ -9,7 +9,7 @@ export class ChessPiece {
   owner: Player;
   type: PieceType;
 
-  constructor ({ owner, type } : { owner: Player, type: PieceType }) {
+  constructor ({ owner, type} : { owner: Player, type: PieceType}) {
     this.type = type;
 
     this.element.classList.add('chess-piece', 'chess-piece--' + type, 'chess-piece--' + owner.color);
